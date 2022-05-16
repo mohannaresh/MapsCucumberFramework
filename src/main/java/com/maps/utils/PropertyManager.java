@@ -14,17 +14,17 @@ public class PropertyManager {
         InputStream is = null;
         String propsFileName = "config.properties";
 
-        if(props.isEmpty()){
-            try{
+        if (props.isEmpty()) {
+            try {
                 utils.log().info("loading config properties");
                 is = getClass().getClassLoader().getResourceAsStream(propsFileName);
                 props.load(is);
             } catch (IOException e) {
                 e.printStackTrace();
-                utils.log().log(SEVERE,"Failed to load config properties. ABORT!!" + e.toString());
+                utils.log().log(SEVERE, "Failed to load config properties. ABORT!!" + e.toString());
                 throw e;
             } finally {
-                if(is != null){
+                if (is != null) {
                     is.close();
                 }
             }

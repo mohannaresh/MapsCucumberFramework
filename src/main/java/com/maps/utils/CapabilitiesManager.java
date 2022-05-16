@@ -15,14 +15,14 @@ public class CapabilitiesManager {
         GlobalParams params = new GlobalParams();
         Properties props = new PropertyManager().getProps();
 
-        try{
+        try {
             utils.log().info("getting capabilities");
             DesiredCapabilities caps = new DesiredCapabilities();
             caps.setCapability(MobileCapabilityType.PLATFORM_NAME, params.getPlatformName());
             caps.setCapability(MobileCapabilityType.UDID, params.getUDID());
             caps.setCapability(MobileCapabilityType.DEVICE_NAME, params.getDeviceName());
 
-            switch(params.getPlatformName()){
+            switch (params.getPlatformName()) {
                 case "Android":
                     caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, props.getProperty("androidAutomationName"));
                     caps.setCapability("appPackage", props.getProperty("androidAppPackage"));
@@ -37,7 +37,6 @@ public class CapabilitiesManager {
                     break;
                 case "iOS":
                     caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, props.getProperty("iOSAutomationName"));
-                    //String iOSAppUrl = getClass().getResource(props.getProperty("iOSAppLocation")).getFile();
                     String iOSAppUrl = System.getProperty("user.dir") + File.separator + "src" + File.separator + "test"
                             + File.separator + "resources" + File.separator + "apps" + File.separator + "SwagLabsMobileApp.app";
                     utils.log().info("appUrl is" + iOSAppUrl);
@@ -48,9 +47,9 @@ public class CapabilitiesManager {
                     break;
             }
             return caps;
-        } catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-            utils.log().log(Level.SEVERE,"Failed to load capabilities. ABORT!!" + e.toString());
+            utils.log().log(Level.SEVERE, "Failed to load capabilities. ABORT!!" + e.toString());
             throw e;
         }
     }

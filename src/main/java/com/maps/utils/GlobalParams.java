@@ -9,11 +9,11 @@ public class GlobalParams {
     private static ThreadLocal<String> wdaLocalPort = new ThreadLocal<String>();
     private static ThreadLocal<String> webkitDebugProxyPort = new ThreadLocal<String>();
 
-    public void setPlatformName(String platformName1){
+    public void setPlatformName(String platformName1) {
         platformName.set(platformName1);
     }
 
-    public String getPlatformName(){
+    public String getPlatformName() {
         return platformName.get();
     }
 
@@ -65,13 +65,13 @@ public class GlobalParams {
         webkitDebugProxyPort.set(webkitDebugProxyPort2);
     }
 
-    public void initializeGlobalParams(){
+    public void initializeGlobalParams() {
         GlobalParams params = new GlobalParams();
         params.setPlatformName(System.getProperty("platformName", "Android"));
         params.setUDID(System.getProperty("udid", "emulator-5554"));
         params.setDeviceName(System.getProperty("deviceName", "Android_Emulator"));
 
-        switch(params.getPlatformName()){
+        switch (params.getPlatformName()) {
             case "Android":
                 params.setSystemPort(System.getProperty("systemPort", "10000"));
                 params.setChromeDriverPort(System.getProperty("chromeDriverPort", "11000"));

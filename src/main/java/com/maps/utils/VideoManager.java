@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.util.logging.Level;
 
 
-
 public class VideoManager {
     TestUtils utils = new TestUtils();
 

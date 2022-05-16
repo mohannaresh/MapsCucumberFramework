@@ -55,4 +55,6 @@ Assumptions
 So, due to that this project will not run successfully with created test cases. Mainly concentrated on design framework,
 implementation and reusable code.
 
-Manual/Functional test cases are mentioned in manualTestcases.feature file in the src/test/resources/features/ directory
+------------------------------------------------
+1. Manual/Functional test cases are mentioned in manualTestcases.feature file in the src/test/resources/features/ directory
+2. Few methods are commented in the project like in Hooks to avoid compilation errors. 
